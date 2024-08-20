@@ -7,10 +7,10 @@ vim.keymap.set("n", "<C-j>",'<Cmd>wincmd j<Cr>')
 vim.keymap.set("n", "<C-k>",'<Cmd>wincmd k<Cr>')
 
 -- Window Creation
-vim.keymap.set("n", "<C-S-h>",'<Cmd>vsplit<Cr>')
-vim.keymap.set("n", "<C-S-l>",'<Cmd>vsplit<Cr>')
-vim.keymap.set("n", "<C-S-J>",'<Cmd>split<Cr>')
-vim.keymap.set("n", "<C-S-k>",'<Cmd>split<Cr>')
+vim.keymap.set("n", "<Leader>sh",'<Cmd>vsplit<Cr>')
+vim.keymap.set("n", "<Leader>sl",'<Cmd>vsplit<Cr>')
+vim.keymap.set("n", "<Leader>sj",'<Cmd>split<Cr>')
+vim.keymap.set("n", "<Leader>sk",'<Cmd>split<Cr>')
 
 -- LSP Commands
 

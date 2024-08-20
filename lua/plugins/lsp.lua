@@ -21,4 +21,7 @@ return {
         build = "make install_jsregexp"
     },
     {'rafamadriz/friendly-snippets'},
+
+    -- Java
+    {'nvim-java/nvim-java'}
 }

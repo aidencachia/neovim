@@ -69,3 +69,5 @@ cmp.setup({
     completion = { completeopt = 'menu,menuone,noinsert' }
 })
 
+require('java').setup()
+require('lspconfig').jdtls.setup({})

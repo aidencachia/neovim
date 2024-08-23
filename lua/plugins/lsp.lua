@@ -23,5 +23,6 @@ return {
     {'rafamadriz/friendly-snippets'},
 
     -- Java
-    {'nvim-java/nvim-java'}
+    {'nvim-java/nvim-java'},
+    {'mfussenegger/nvim-jdtls'}
 }

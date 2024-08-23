@@ -21,6 +21,11 @@ lsp_zero.extend_lspconfig({
   capabilities = require('cmp_nvim_lsp').default_capabilities()
 })
 
+require('java').setup()
+require('lspconfig').jdtls.setup({})
+require('jdtls').test_class()
+require('jdtls').test_nearest_method()
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
   handlers = {
@@ -69,5 +74,19 @@ cmp.setup({
     completion = { completeopt = 'menu,menuone,noinsert' }
 })
 
-require('java').setup()
-require('lspconfig').jdtls.setup({})
+-- This bundles definition is the same as in the previous section (java-debug installation)
+local bundles = {
+  vim.fn.glob("~/.config/nvim/etc/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+};
+
+-- This is the new part
+vim.list_extend(bundles, vim.split(vim.fn.glob("~/.config/nvim/etc/vscode-java-test/server/*.jar", 1), "\n"))
+local config ={
+    init_options = {
+        bundles = bundles;
+    }
+}
+
+require('jdtls').start_or_attach(config)
+
+

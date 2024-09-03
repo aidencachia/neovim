@@ -1,0 +1,3 @@
+[submodule "etc/java-debug"]
+	path = etc/java-debug
+	url = https://github.com/microsoft/java-debug

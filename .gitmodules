@@ -1,3 +1,6 @@
 [submodule "etc/java-debug"]
 	path = etc/java-debug
 	url = https://github.com/microsoft/java-debug
+[submodule "etc/eclipse-jdtls"]
+	path = etc/eclipse-jdtls
+	url = https://github.com/eclipse-jdtls/eclipse.jdt.ls

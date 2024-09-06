@@ -1,6 +1,6 @@
 local lsp_zero = require('lsp-zero')
 
-local path = require('path');
+-- local path = require('path');
 
 local lsp_attach = function(_, bufnr)
   local opts = {buffer = bufnr}

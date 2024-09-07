@@ -53,14 +53,13 @@ cmp.setup({
     snippet = {
         expand = function(args)
             -- You need Neovim v0.10 to use vim.snippet
-            vim.snippet.expand(args.body)
             require('luasnip').lsp_expand(args.body)
         end,
     },mapping = {
-        ['<cr>'] = cmp.mapping.confirm({select = false}),
+        ['<cr>'] = cmp.mapping.confirm({select = true}),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<C-k>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
-        ['<C-j>'] = cmp.mapping.select_next_item({behavior = 'select'}),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
+        ['<Tab>'] = cmp.mapping.select_next_item({behavior = 'select'}),
         ['<C-p>'] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item({behavior = 'insert'})

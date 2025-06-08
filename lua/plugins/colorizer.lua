@@ -1,4 +1,5 @@
 -- NvChad colorizer setup
 return{
-	'NvChad/nvim-colorizer.lua'
+	'catgoose/nvim-colorizer.lua',
+    "uga-rosa/ccc.nvim"
 }

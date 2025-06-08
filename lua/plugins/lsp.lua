@@ -1,28 +1,40 @@
 return {
-    -- LSP Support
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'},
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
-    {'neovim/nvim-lspconfig'},
-    -- Autocomplete
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/nvim-cmp'},
-    {'hrsh7th/cmp-path'},
-    {'saadparwaiz1/cmp_luasnip'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/cmp-nvim-lua'},
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v4.x",         -- core LSP “preset” (v4)
+    dependencies = {
+      -- LSP support
+      "neovim/nvim-lspconfig",
 
-    --Snippets
-    {
+      -- Mason package manager + lspconfig integration
+      {
+                "mason-org/mason.nvim",
+                lazy = false,
+                config = function()
+                    require("mason").setup()
+                end,
+      },
+      {
+                "mason-org/mason-lspconfig.nvim",
+                lazy = false,
+                dependencies = { "mason-org/mason.nvim" }
+      },
+      -- Completion engine + sources
+      "hrsh7th/nvim-cmp",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-nvim-lua",
+      "saadparwaiz1/cmp_luasnip",
+
+      -- Snippets
+      {
         "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!).
-        build = "make install_jsregexp"
+        version = "v2.*",
+        build = "make install_jsregexp",
+        dependencies = { "rafamadriz/friendly-snippets" },
+      },
+      "rafamadriz/friendly-snippets",
     },
-    {'rafamadriz/friendly-snippets'},
-
-    -- Java
-    -- {'nvim-java/nvim-java'},
-    -- {'mfussenegger/nvim-jdtls'}
+    -- all actual setup is in after/plugin/lsp.lua
+  },
 }

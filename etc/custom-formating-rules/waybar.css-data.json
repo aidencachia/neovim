@@ -1,0 +1,26 @@
+{
+  "version": 1.0,
+  "atDirectives": [
+    {
+      "name": "@define-color",
+      "description": "Define a named color for Waybar (e.g. @define-color backgroundlight #A599E9;)."
+    }
+  ],
+  "properties": [
+    {
+      "name": "*",
+      "description": "Allow custom Waybar-defined color names as property values",
+      "values": [
+        "backgroundlight",
+        "backgrounddark",
+        "workspacebackground1",
+        "workspacebackground2",
+        "bordercolor",
+        "textcolor1",
+        "textcolor2",
+        "textcolor3",
+        "iconcolor"
+      ]
+    }
+  ]
+}

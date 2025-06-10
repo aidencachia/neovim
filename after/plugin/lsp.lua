@@ -38,8 +38,7 @@ lsp_zero.extend_lspconfig({
 require("mason").setup()
 
 require('mason-lspconfig').setup({
-    ensure_installed = { "jsonls", "ltex", 'texlab', 'pyright', 'ts_ls', 'bashls', 'lua_ls' }, -- adjust servers as needed :contentReference[oaicite:10]{index=10}
-    automatic_enable = true,
+    ensure_installed = { "cssls", "jsonls", "ltex", 'texlab', 'pyright', 'ts_ls', 'bashls', 'lua_ls' }, -- adjust servers as needed :contentReference[oaicite:10]{index=10}
     automatic_installation = true,
     handlers = {
         function(server_name)                           -- default handler

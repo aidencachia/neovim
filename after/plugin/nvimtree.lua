@@ -24,4 +24,6 @@ require("nvim-tree").setup({
   },
 })
 
-vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<cr>", {silent = true, noremap = true})
+require("which-key").add({
+  { "<C-n>", ":NvimTreeToggle<cr>", desc = "Toggle Nvim Tree", icon = { icon = '󰙅', color = "yellow" } }
+}, { silent = true, noremap = true })

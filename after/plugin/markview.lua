@@ -12,6 +12,9 @@ require("markview").setup({
   typst    = { enable = true },
 })
 
-vim.keymap.set("n", "<leader>mv", ":Markview toggle<CR>",      { desc = "Toggle preview" })
-vim.keymap.set("n", "<leader>ms", ":Markview splitToggle<CR>", { desc = "Toggle split view" })
-vim.keymap.set("n", "<leader>mh", ":Markview hybridToggle<CR>",{ desc = "Toggle hybrid mode" })
+require("which-key").add({
+  { "<leader>vm", group = "Markdown", icon = { icon = '', color = "red" } },
+  { "<leader>vmv", ":Markview toggle<CR>", desc = "Toggle Markdown Preview" , icon = {icon = '', color = "yellow" } },
+  { "<leader>vms", ":Markview splitToggle<CR>", desc = "Toggle Markdown split view", icon = { icon = '', color = "blue" } },
+  { "<leader>vmh", ":Markview hybridToggle<CR>", desc = "Toggle Markdown hybrid view", icon = { icon = '', color = "green" } },
+})

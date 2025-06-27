@@ -1,9 +1,6 @@
 return {
   "OXY2DEV/markview.nvim",
   lazy = false,                -- must load before nvim-treesitter
-  dependencies = {             -- ensure treesitter is available
-    "nvim-treesitter/nvim-treesitter",
-  },
   config = function()
     require("markview").setup({
       preview = {

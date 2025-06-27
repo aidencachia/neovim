@@ -1,12 +1,52 @@
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fs', builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-vim.keymap.set('n', "<leader>fk", ":Telescope keymaps<CR>")
+
 function _G.Cword()
-    return vim.fn.expand("<cword>")
+  return vim.fn.expand("<cword>")
 end
 
-vim.keymap.set("n", "<Leader>fww",  function () require('telescope').extensions.live_grep_args.live_grep_args({ default_text = "[^a-zA-Z]"..Cword().."[^a-zA-Z]"}) end)
-vim.keymap.set("n", "<Leader>fwd",  function () require('telescope').extensions.live_grep_args.live_grep_args({ default_text = "\"[^a-zA-Z]"..Cword().."[^a-zA-Z]\" --iglob **/main/**"}) end)
-vim.keymap.set("n", "<Leader>fwt",  function () require('telescope').extensions.live_grep_args.live_grep_args({ default_text = "\"[^a-zA-Z]"..Cword().."[^a-zA-Z]\" --iglob **/test/**"}) end)
+local wk = require("which-key")
+
+wk.add({
+  { "<Leader>f", group = "Find", icon = { icon = '󰍉', color = "purple" } },
+  {
+    mode = 'n',
+    { "<Leader>ff", builtin.find_files, desc = "Find Files", icon = { icon = '󰈞', color = "cyan" } },
+    { "<Leader>fs", builtin.live_grep, desc = "Find Text in Project (Grep)", icon = { icon = '', color = "green" } },
+    { "<Leader>fk", ":Telescope keymaps<CR>", desc = "Find Keyboard Shortcuts", icon = { icon = '', color = "grey" } },
+    { "<Leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc = "Find Words in Project (Grep W/ Args)", icon = { icon = '', color = "green" } },
+    { "<Leader>fw", group = "Find Current Word", icon = { icon = '󰗧', color = "red" } },
+    {
+      "<Leader>fww",
+      function()
+        require('telescope').extensions.live_grep_args.live_grep_args({
+          default_text = "[^a-zA-Z]" ..
+              Cword() .. "[^a-zA-Z]"
+        })
+      end,
+      desc = "Find Current Word",
+      icon = { icon = "󰗧", color = "red" }
+    },
+    {
+      "<Leader>fwd",
+      function()
+        require('telescope').extensions.live_grep_args.live_grep_args({
+          default_text = "\"[^a-zA-Z]" ..
+              Cword() .. "[^a-zA-Z]\" --iglob **/main/**"
+        })
+      end,
+      desc = "in Dev",
+      icon = { icon = '', color = "blue" }
+    },
+    {
+      "<Leader>fwt",
+      function()
+        require('telescope').extensions.live_grep_args.live_grep_args({
+          default_text = "\"[^a-zA-Z]" ..
+              Cword() .. "[^a-zA-Z]\" --iglob **/test/**"
+        })
+      end,
+      desc = "in Tests",
+      icon = { icon = '󰙨', color = "green" }
+    }
+  }
+})

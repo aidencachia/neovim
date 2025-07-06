@@ -4,6 +4,9 @@ require("markview").setup({
     filetypes   = { "md", "markdown" },
     splitview_winopts = { split = "right" },
   },
+  experimental = {
+    check_rtp = false,
+  },
   -- Enable or disable individual renderers:
   markdown = { enable = true },
   latex    = { enable = true },

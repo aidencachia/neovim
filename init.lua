@@ -4,3 +4,5 @@ require("keymap")
 
 -- Lazy
 require("config.lazy")
+
+require("current-theme")

@@ -1,10 +1,20 @@
 return {
-	"tiagovla/tokyodark.nvim",
-	opts = {
-		transparent_background = true
-	},
-	config = function(_, opts)
-		require("tokyodark").setup(opts) -- calling setup is optional
-		vim.cmd [[colorscheme tokyodark]]
-	end,
+  { "tiagovla/tokyodark.nvim" },
+  { "folke/tokyonight.nvim" },
+  { "navarasu/onedark.nvim" },
+  { "ellisonleao/gruvbox.nvim" },
+  { "morhetz/gruvbox" },
+  { "Mofiqul/dracula.nvim" },
+  { "EdenEast/nightfox.nvim" },
+  { "rebelot/kanagawa.nvim" },
+  { "projekt0n/github-nvim-theme" },
+  { "shaunsingh/nord.nvim" },
+  { "shaunsingh/solarized.nvim" },
+  { "savq/melange" },
+  { "sainnhe/edge" },
+  { "sainnhe/everforest" },
+  { "sainnhe/gruvbox-material" },
+  { "sainnhe/sonokai" },
+  { "rmehri01/onenord.nvim" },
+  { "chriskempson/base16-vim" },
 }

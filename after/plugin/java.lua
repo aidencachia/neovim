@@ -1,4 +1,5 @@
 local jdtls = require("jdtls.setup")
+
 local function get_maven_modules()
   local jdtls = require("jdtls.setup")
   local root = jdtls.find_root({ "pom.xml", ".git" })

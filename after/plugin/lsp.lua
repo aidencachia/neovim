@@ -134,3 +134,43 @@ lspconfig.cssls.setup({
 lspconfig.clangd.setup({
   cmd = { "clangd", "--compile‐commands‐dir=${workspaceFolder}/build" },
 })
+
+
+local mason_root               = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+local launcher_jar             = vim.fn.glob(mason_root .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+local config_dir               = mason_root .. "/config_linux"
+local workspace                = vim.fn.getcwd() -- or wherever you want your workspace data
+local java_debug_pkg           = vim.fn.stdpath("data") .. "/mason/packages/java-debug-adapter"
+local bundles                  = vim.fn.glob(java_debug_pkg .. "/extension/server/*.jar", true, true)
+local util                     = require("lspconfig.util")
+local root_dir                 = util.root_pattern("pom.xml", "build.gradle", ".git")(vim.fn.getcwd())
+
+local config                   = {
+  cmd = {
+    "java",
+    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+    "-Dosgi.bundles.defaultStartLevel=4",
+    "-jar", launcher_jar,
+    "-configuration", config_dir,
+    "-data", workspace,
+  },
+  root_dir = root_dir,
+  settings = {
+    java = {
+      signatureHelp = { enabled = true },
+      contentProvider = { preferred = "fernflower" },
+    },
+  },
+  init_options = {
+    bundles = bundles, -- we'll add the debug bundle below
+  },
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  on_attach = lsp_attach,
+}
+
+-- add VSCode Java debug server to bundles
+lspconfig.init_options.bundles = vim.tbl_map(function(bundle)
+  return java_debug_pkg .. bundle
+end, vim.fn.glob(java_debug_pkg .. "/extension/server/*.jar", true, true))
+
+require("jdtls").start_or_attach(config)

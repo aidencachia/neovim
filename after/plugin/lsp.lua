@@ -1,4 +1,5 @@
 local lsp_zero = require('lsp-zero')
+local telescope = require('telescope.builtin')
 
 local function lsp_attach(_, bufnr) -- runs on LspAttach :contentReference[oaicite:8]{index=8}
   local opts = { buffer = bufnr }
@@ -12,7 +13,7 @@ local function lsp_attach(_, bufnr) -- runs on LspAttach :contentReference[oaici
       { "<leader>cD", vim.lsp.buf.declaration, desc = "Decleration" },
       { "<leader>ci", vim.lsp.buf.implementation, desc = "Implementation" },
       { "<leader>co", vim.lsp.buf.type_definition, desc = "Type Definition" },
-      { "<leader>cr", vim.lsp.buf.references, desc = "References" },
+      { "<leader>cr", telescope.lsp_references, desc = "References" },
       { "<leader>cs", vim.lsp.buf.signature_help, desc = "Signature Help" },
       { "<F2>", vim.lsp.buf.rename, desc = "Rename" },
       { "<F3>", function() vim.lsp.buf.format({ async = true }) end, desc = "Reformat" },

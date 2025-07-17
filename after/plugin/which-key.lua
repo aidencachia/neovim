@@ -43,6 +43,5 @@ require("which-key").add({
   { "<Leader>sj", '<Cmd>split<Cr>', mode = "n", desc = "Horizontal Split", proxy = "<leader>sk", icon = { icon = '', color = "orange" } },
   { "<F5>", compile_and_run, mode = "n", desc = "Compile and Run current file" },
   { "<leader>v", group = "View", icon = { icon = '󰈈', color = "green" } },
-  { "<leader>g", group = "Git", icon = { icon = '', color = "cyan" } },
   { '<leader>u', vim.cmd.UndotreeToggle, mode = 'n', desc = "Toggle Undo Tree", icon = { icon = '', color = 'red' } },
 })

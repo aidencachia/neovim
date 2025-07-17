@@ -7,6 +7,5 @@ neogit.setup {
 }
 
 require("which-key").add({
-  { "<leader>g", group = "Git", icon = { icon = '', color = 'blue'}},
-  { "<leader>gv", function () neogit.open({kind="floating"})end, desc = "Open Git Menu"}
+  { "<leader>g", function () neogit.open({kind="floating"})end, desc = "Open Git Menu"}
 })

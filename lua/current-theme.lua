@@ -1,1 +1,1 @@
-vim.cmd("colorscheme base16-horizon-terminal-dark")
+vim.cmd("colorscheme github_dark_default")

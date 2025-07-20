@@ -1,6 +1,3 @@
 return {
-  {
-    "FabijanZulj/blame.nvim",
-    lazy = false,
-  }
+  "folke/trouble.nvim",
 }

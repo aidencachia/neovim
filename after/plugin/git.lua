@@ -7,5 +7,5 @@ neogit.setup {
 }
 
 require("which-key").add({
-  { "<leader>g", function () neogit.open({kind="floating"})end, desc = "Open Git Menu"}
+  { "<C-g>", function () neogit.open({kind="floating"})end, desc = "Open Git Menu"}
 })
